@@ -7,13 +7,14 @@ import com.example.core.BaseApplication
 
 object Utils {
     private val displayMetrics = Resources.getSystem().displayMetrics
+
     @JvmStatic
-    fun dp2px(dp: Float): Float {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics)
-    }
+    fun Float.dp2px(): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this, displayMetrics)
+
 
     @JvmOverloads
+    @JvmStatic
     fun toast(string: String?, duration: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(BaseApplication.Companion.currentApplication(), string, duration).show()
+        Toast.makeText(BaseApplication.currentApplication, string, duration).show()
     }
 }
